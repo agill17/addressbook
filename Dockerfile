@@ -4,7 +4,7 @@
 
 FROM tomcat:latest as build
 
-ARG repo="null"
+ARG repo=null
 
 RUN apt-get update  -y
 
@@ -15,7 +15,7 @@ ADD http://apache.mirrors.pair.com/maven/maven-3/3.5.3/binaries/apache-maven-3.5
 RUN apt-get install git openjdk-8-jdk -y \
     && tar xzvf apache-maven-3.5.3-bin.tar.gz \
     && rm -rf apache-maven-3.5.3-bin.tar.gz \
-    && mkdir /app \
+    && mkdir /app
 
 ENV PATH="/opt/apache-maven-3.5.3/bin:${PATH}"
 

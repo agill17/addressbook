@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: app-port
+    protocol: TCP
+  selector:
+    app: addressbook
+      
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: addressbook
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: addressbook
+    spec:
+      containers:
+      - name: addressbook
+        image: agill17/tomcat:latest
+        ports:
+        - name: app-port
+          containerPort: 8080
+
