@@ -20,7 +20,7 @@ pipeline {
              && cd Infrastructure-as-Code/Docker/multi-stage-tomcat-app \
              && sudo systemctl start docker \
              && sudo docker --version \
-             && sudo docker image build --build-arg repo=${app_repo} . --tag agill17/tomcat:${BUILD_NUMBER} \
+             && sudo docker image build --build-arg mvn_goal="package" --build-arg repo=${app_repo} . --tag agill17/tomcat:${BUILD_NUMBER} \
              && cat /tmp/p.txt | sudo docker login --username=agill17 --password-stdin \
              && sudo docker image push agill17/tomcat:${BUILD_NUMBER}
           """
