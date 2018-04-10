@@ -1,3 +1,4 @@
+/**
 pipeline {
   agent none
   stages {
@@ -44,3 +45,14 @@ pipeline {
     
   }
 }
+**/
+
+
+@Library('library') _
+
+basicStandard {
+    goal = "package"
+    hostToDeploy = "localhost"
+}
+
+
