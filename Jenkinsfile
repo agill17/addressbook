@@ -55,6 +55,7 @@ node {
   def imgTag = "agill17/tomcat:latest"
   def contPort = "8080" 
   def hostPort = "8088"  
+  
   stage ('run container') {
     deployContainer(imgTag, contPort, hostPort)
   }
