@@ -2,7 +2,7 @@
 
 node {
   
-  def imgTag = "agill17/tomcat:latest_jenkins"
+  def imgTag = "agill17/tomcat:${env.BUILD_NUMBER}"
   def contPort = "8080" 
   def hostPort = "8088"  
   def docker_hub_creds = 'docker_hub'
