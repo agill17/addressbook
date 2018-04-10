@@ -48,7 +48,7 @@ pipeline {
 **/
 
 
-@Library('library') _
+@Library('github.com/agill17/Jenkins_Test@master') _
 
 basicStandard {
     goal = "package"
