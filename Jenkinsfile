@@ -52,10 +52,16 @@ pipeline {
 
 node {
   
-  def imgTag = "agill17/tomcat:latest"
+  def imgTag = "agill17/tomcat:latest_jenkins"
   def contPort = "8080" 
   def hostPort = "8088"  
+  def docker_hub_creds = 'docker_hub'
+
   
+  stage ('build and push') {
+    buildImage(docker_hub_creds, imgTag)
+  }
+   
   stage ('run container') {
     deployContainer(imgTag, "-p ${hostPort}:${contPort}")
   }
