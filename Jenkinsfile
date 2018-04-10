@@ -59,7 +59,7 @@ node {
 
   
   stage ('build and push') {
-    buildImage(docker_hub_creds, imgTag)
+    buildImage('hub.docker.com', docker_hub_creds, imgTag)
   }
    
   stage ('run container') {
