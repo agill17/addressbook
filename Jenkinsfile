@@ -57,7 +57,7 @@ node {
   def hostPort = "8088"  
   
   stage ('run container') {
-    deployContainer(imgTag, '-p 8088:8080')
+    deployContainer(imgTag, "-p 8088:8080")
   }
 
 }
