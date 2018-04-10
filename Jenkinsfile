@@ -48,11 +48,12 @@ pipeline {
 **/
 
 
-@Library('github.com/agill17/Jenkins_Test@master') _
+@Library('library') _
 
-basicStandard {
-    goal = "package"
-    hostToDeploy = "localhost"
+node {
+  
+  stage ('Clone'){
+    buildImage 'amrit'
+  }
+
 }
-
-
